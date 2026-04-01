@@ -7,16 +7,16 @@ import "./globals.css"
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
-
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.flores247.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.flores247.com"),
   title: {
     default: "Flores247 - Login to Your Benefits Account",
-    template: "%s | Flores247"
+    template: "%s | Flores247",
   },
-  description: "Login to your Flores benefits account. Access your balance, file claims, manage your benefits, and explore FSA, HSA, and HRA plans. Secure participant and employer portal access.",
+  description:
+    "Login to your Flores benefits account. Access your balance, file claims, manage your benefits, and explore FSA, HSA, and HRA plans. Secure participant and employer portal access.",
   keywords: [
-    "Flores247",
+    "flores247",
     "Flores Associates",
     "benefits login",
     "FSA login",
@@ -30,37 +30,34 @@ export const metadata: Metadata = {
     "benefits balance",
     "employee benefits",
     "participant login",
-    "employer login"
+    "employer login",
+    "flores retirement",
+    "floreshr",
   ],
   authors: [{ name: "Flores & Associates" }],
   creator: "Flores & Associates",
   publisher: "Flores & Associates",
-  generator: 'Next.js',
+  generator: "Next.js",
   applicationName: "Flores247",
   referrer: "origin-when-cross-origin",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  formatDetection: { email: false, address: false, telephone: false },
   icons: {
     icon: [
-      { url: '/flores.png', sizes: 'any' },
-      { url: '/icon-light-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/icon-dark-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: "/flores.png", sizes: "any" },
+      { url: "/icon-light-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-dark-32x32.png", sizes: "32x32", type: "image/png" },
     ],
-    apple: [
-      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
-  manifest: '/manifest.json',
+  manifest: "/manifest.json",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "/",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.flores247.com",
     siteName: "Flores247",
     title: "Flores247 - Login to Your Benefits Account",
-    description: "Login to your Flores benefits account. Access your balance, file claims, and manage your benefits.",
+    description:
+      "Login to your Flores benefits account. Access your balance, file claims, and manage your benefits.",
     images: [
       {
         url: "/flores.png",
@@ -73,7 +70,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Flores247 - Login to Your Benefits Account",
-    description: "Login to your Flores benefits account. Access your balance, file claims, and manage your benefits.",
+    description:
+      "Login to your Flores benefits account. Access your balance, file claims, and manage your benefits.",
     images: ["/flores.png"],
     creator: "@FloresAssociates",
   },
@@ -88,39 +86,8 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    
-    
-    
-    
-  },
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   category: "Finance",
-
-
-
-   keywords: [
-    "flores247",
-    "flores retirement",
-    "flores247 login",
-    "flores247 Mercedes",
-    "flores247 HSA",
-    "flores247 FSA",
-    "flores 247 HRA",
-    "flores benefits",
-    "flores account login",
-    "floreshr",    "floreshr login",
-    "floreshr benefits",
-    "floreshr account", 
-  ],
-
-  openGraph: {
-    type: 'website',
-    url: "",
-    siteName: "Aptia365"
-  }
 }
 
 export default function RootLayout({
@@ -129,51 +96,53 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${_geist.className} ${_geistMono.className}`}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />
-        
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "Flores & Associates",
-              "url": "https://www.flores247.com",
-              "logo": "https://www.flores247.com/flores.png",
-              "description": "Flores & Associates provides comprehensive benefits administration services including FSA, HSA, and HRA plans.",
-              "contactPoint": {
+              name: "Flores & Associates",
+              url: "https://www.flores247.com",
+              logo: "https://www.flores247.com/flores.png",
+              description:
+                "Flores & Associates provides comprehensive benefits administration services including FSA, HSA, and HRA plans.",
+              contactPoint: {
                 "@type": "ContactPoint",
-                "contactType": "Customer Service",
-                "url": "https://www.flores247.com/contact-login.vbhtml"
+                contactType: "Customer Service",
+                url: "https://www.flores247.com/contact-login.vbhtml",
               },
-              "sameAs": [
+              sameAs: [
                 "https://www.facebook.com/FloresAssociates",
-                "https://www.linkedin.com/company/flores-&-associates"
-              ]
-            })
+                "https://www.linkedin.com/company/flores-&-associates",
+              ],
+            }),
           }}
         />
-        
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebApplication",
-              "name": "Flores247",
-              "url": "https://www.flores247.com",
-              "applicationCategory": "FinanceApplication",
-              "operatingSystem": "Web",
-              "offers": {
+              name: "Flores247",
+              url: "https://www.flores247.com",
+              applicationCategory: "FinanceApplication",
+              operatingSystem: "Web",
+              offers: {
                 "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
+                price: "0",
+                priceCurrency: "USD",
               },
-              "description": "Secure login portal for Flores benefits account management, including FSA, HSA, and HRA plans."
-            })
+              description:
+                "Secure login portal for Flores benefits account management, including FSA, HSA, and HRA plans.",
+            }),
           }}
         />
       </body>
